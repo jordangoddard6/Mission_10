@@ -1,3 +1,4 @@
+// Data from bowlers table
 export type bowler = {
   bowlerId: number;
   bowlerFirstName: string;
@@ -11,6 +12,7 @@ export type bowler = {
   team: team;
 };
 
+// Data from teams table
 export type team = {
   teamName: string;
 };

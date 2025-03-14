@@ -1,6 +1,7 @@
 import './App.css';
 import BowlerList from './BowlerList';
 
+// Header component, describes purpose of web app
 function Header() {
   return (
     <>
@@ -10,6 +11,7 @@ function Header() {
   );
 }
 
+// Main component
 function App() {
   return (
     <>
