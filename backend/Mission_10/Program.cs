@@ -3,17 +3,18 @@ using Mission_10.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
+// Add services to the containers
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Configure database connection
 builder.Services.AddDbContext<BowlingLeagueContext>(options =>
 {
     options.UseSqlite(builder.Configuration["ConnectionStrings:BowlingConnection"]);
 });
 
+// Set up CORS for React frontend to reach backend API
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp",
@@ -34,6 +35,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+// Allow CORS for React frontend to reach backend API
 app.UseCors("AllowReactApp");
 
 app.UseHttpsRedirection();

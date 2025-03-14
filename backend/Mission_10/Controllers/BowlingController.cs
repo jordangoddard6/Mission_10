@@ -5,15 +5,17 @@ using Mission_10.Data;
 
 namespace Mission_10.Controllers
 {
+    // Bowling API
     [Route("api/[controller]")]
     [ApiController]
     public class BowlingController : ControllerBase
     {
-
+        // Get action for external programs to get Bowler data
         [HttpGet(Name = "GetBowlers")]
         public IEnumerable<Bowler> Get()
             {
-                var bowlerList = _bowlingContext.Bowlers
+                // Pull data from database and return in list
+                IEnumerable<Bowler> bowlerList = _bowlingContext.Bowlers
                 .Include(b => b.Team)
                 .Where(x => x.Team.TeamName == "Marlins" || x.Team.TeamName == "Sharks")
                 .ToList();
